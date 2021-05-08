@@ -3,19 +3,21 @@ from urllib.request import urlretrieve
 u1='https://hub.jovian.ml/wp-content/uploads/2020/08/loans1.txt'
 
 print(os.getcwd())
-
+#to save retrieved data as "format"
 urlretrieve(u1,'./data/l1.txt')
 
+#to specify the file handle to which we will store the data and read from it later on
 with open('./data/l1.txt') as fr:
     file_r=fr.readlines()
     print(f"org{file_r}")
 
-
+     #function to define headers from the text file
     def parse_headers(headerline):
         return headerline.strip().split(',')
     headers=parse_headers(file_r[0])
     print(headers)
-
+     
+       #function to append values from text file and append them to a list
     def parse_values(dataline):
         values=[]
         for item in dataline.strip().split(','):
@@ -30,7 +32,8 @@ with open('./data/l1.txt') as fr:
         n+=1
         if n==len(file_r):
             break
-
+            
+    #fuction to create dictionary with data retrieved from headers and values as keys and items
     def create_dict(values,headers):
         result={}
         for header,value in zip(values,headers):
@@ -38,6 +41,7 @@ with open('./data/l1.txt') as fr:
         print(result)
 
     m=1
+    #to iterate the function over the range of values mentioned in the list
     for x in range(len(file_r)):
         cd = create_dict(file_r[m],file_r[0])
         m+=1
