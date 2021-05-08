@@ -17,7 +17,7 @@ with open('./data/l1.txt') as fr:
     headers=parse_headers(file_r[0])
     print(headers)
      
-       #function to append values from text file and append them to a list
+       #function to intercept values from text file and append to a list
     def parse_values(dataline):
         values=[]
         for item in dataline.strip().split(','):
