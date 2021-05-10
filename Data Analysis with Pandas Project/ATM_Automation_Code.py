@@ -1,6 +1,6 @@
 import pandas as pd
 
-rf = pd.read_excel("C:/Users/HP/Documents/Bankpy.xlsx")
+rf = pd.read_excel("Bankpy.xlsx")
 
 
 #function to ask user to continue or exit the session
